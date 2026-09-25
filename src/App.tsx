@@ -240,7 +240,7 @@ function AcceptedSection() {
         </h2>
         <div className="glass-card rounded-3xl p-8 md:p-12 animate-fade-in-up delay-500 glow-pink">
           <p className="text-2xl md:text-3xl text-pink-100 leading-relaxed mb-6">
-            Я так счастлив(а)! 💕
+            Я так счастлив! 💕
           </p>
           <p className="text-xl text-pink-200/80 mb-8">
             Обещаю, это будет незабываемый вечер ✨
