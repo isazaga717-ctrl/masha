@@ -124,7 +124,7 @@ function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
 }
 
 // Секция "Ты особенная"
-function ReasonsSection() {
+function ReasonsSection({ onNext }: { onNext: () => void }) {
   const reasons = [
     { emoji: '✨', text: 'Твоя улыбка освещает мой день' },
     { emoji: '🌹', text: 'Ты делаешь мир красивее просто тем, что ты в нём есть' },
@@ -142,7 +142,7 @@ function ReasonsSection() {
       <p className="text-pink-200/60 text-lg mb-12 animate-fade-in-up delay-200 text-center">
         (и это далеко не полный список)
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full mb-12">
         {reasons.map((reason, i) => (
           <div
             key={i}
@@ -154,6 +154,12 @@ function ReasonsSection() {
           </div>
         ))}
       </div>
+      <button
+        onClick={onNext}
+        className="animate-fade-in delay-1500 px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-lg font-medium hover:from-pink-600 hover:to-rose-600 transition-all duration-300 glow-pink hover:scale-105 transform"
+      >
+        Далее →
+      </button>
     </section>
   );
 }
@@ -243,13 +249,43 @@ function AcceptedSection() {
           <p className="text-2xl md:text-3xl text-pink-100 leading-relaxed mb-6">
             Я так счастлив(а)! 💕
           </p>
-          <p className="text-xl text-pink-200/80 mb-6">
+          <p className="text-xl text-pink-200/80 mb-8">
             Обещаю, это будет незабываемый вечер ✨
           </p>
-          <div className="text-5xl animate-pulse-heart">
+          
+          <div className="glass-card rounded-2xl p-6 mb-8 border border-pink-400/20">
+            <h3 className="text-2xl md:text-3xl text-gradient font-bold mb-6">
+              Детали свидания 💌
+            </h3>
+            <div className="space-y-4 text-left">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">📅</span>
+                <div>
+                  <p className="text-pink-300/70 text-sm uppercase tracking-wide">Дата</p>
+                  <p className="text-xl md:text-2xl text-pink-100 font-medium">4 октября 2026</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">🕐</span>
+                <div>
+                  <p className="text-pink-300/70 text-sm uppercase tracking-wide">Время</p>
+                  <p className="text-xl md:text-2xl text-pink-100 font-medium">14:00</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">📍</span>
+                <div>
+                  <p className="text-pink-300/70 text-sm uppercase tracking-wide">Место</p>
+                  <p className="text-xl md:text-2xl text-pink-100 font-medium">проспект Дзержинского 9/2</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-5xl animate-pulse-heart mb-6">
             💑
           </div>
-          <p className="text-lg text-pink-300/60 mt-8 italic">
+          <p className="text-lg text-pink-300/60 italic">
             "Лучшие истории начинаются с 'да'" 💫
           </p>
         </div>
@@ -277,6 +313,10 @@ export default function App() {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
 
+  const scrollToInvitation = () => {
+    window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (accepted) {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
@@ -291,7 +331,7 @@ export default function App() {
 
       <div className="relative z-10">
         <HeroSection onScrollDown={scrollToNext} />
-        <ReasonsSection />
+        <ReasonsSection onNext={scrollToInvitation} />
         {!accepted ? (
           <InvitationSection onAccept={handleAccept} />
         ) : (
