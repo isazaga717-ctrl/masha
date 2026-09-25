@@ -103,6 +103,9 @@ function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4">
       <div className="text-center animate-fade-in-up">
         <div className="text-6xl md:text-8xl mb-6 animate-pulse-heart">💝</div>
+        <p className="text-2xl md:text-4xl text-pink-300/90 mb-4 font-light italic animate-fade-in delay-100">
+          Дорогая, Маша
+        </p>
         <h1 className="text-4xl md:text-7xl font-bold text-gradient mb-6 leading-tight">
           У меня есть<br />вопрос к тебе...
         </h1>
