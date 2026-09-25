@@ -275,7 +275,7 @@ function AcceptedSection() {
             </div>
           </div>
 
-          <div className="text-5xl animate-pulse-heart mb-6">💑</div>
+          <div className="text-5xl animate-pulse-heart mb-6">💞</div>
           <p className="text-lg text-pink-300/60 italic">
             "Лучшие истории начинаются с 'да'" 💫
           </p>
