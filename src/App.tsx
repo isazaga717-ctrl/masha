@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 
-// Компонент летающих сердечек на фоне
 function FloatingHearts() {
   const hearts = Array.from({ length: 20 }, (_, i) => ({
     id: i,
@@ -33,7 +32,6 @@ function FloatingHearts() {
   );
 }
 
-// Компонент звёзд/блёсток
 function Sparkles() {
   const sparkles = Array.from({ length: 30 }, (_, i) => ({
     id: i,
@@ -64,7 +62,6 @@ function Sparkles() {
   );
 }
 
-// Конфетти при согласии
 function Confetti() {
   const pieces = Array.from({ length: 50 }, (_, i) => ({
     id: i,
@@ -97,7 +94,6 @@ function Confetti() {
   );
 }
 
-// Главная секция
 function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4">
@@ -123,7 +119,6 @@ function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
   );
 }
 
-// Секция "Ты особенная"
 function ReasonsSection({ onNext }: { onNext: () => void }) {
   const reasons = [
     { emoji: '✨', text: 'Твоя улыбка освещает мой день' },
@@ -146,7 +141,7 @@ function ReasonsSection({ onNext }: { onNext: () => void }) {
         {reasons.map((reason, i) => (
           <div
             key={i}
-            className={`glass-card rounded-2xl p-6 animate-fade-in-up hover:scale-105 transition-transform duration-300 glow-pink`}
+            className="glass-card rounded-2xl p-6 animate-fade-in-up hover:scale-105 transition-transform duration-300 glow-pink"
             style={{ animationDelay: `${(i + 1) * 200}ms` }}
           >
             <span className="text-3xl mb-3 block">{reason.emoji}</span>
@@ -164,7 +159,6 @@ function ReasonsSection({ onNext }: { onNext: () => void }) {
   );
 }
 
-// Секция с приглашением
 function InvitationSection({ onAccept }: { onAccept: () => void }) {
   const [noPos, setNoPos] = useState({ x: 0, y: 0 });
   const [noMoved, setNoMoved] = useState(false);
@@ -236,7 +230,6 @@ function InvitationSection({ onAccept }: { onAccept: () => void }) {
   );
 }
 
-// Секция после согласия
 function AcceptedSection() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
@@ -282,9 +275,7 @@ function AcceptedSection() {
             </div>
           </div>
 
-          <div className="text-5xl animate-pulse-heart mb-6">
-            💑
-          </div>
+          <div className="text-5xl animate-pulse-heart mb-6">💑</div>
           <p className="text-lg text-pink-300/60 italic">
             "Лучшие истории начинаются с 'да'" 💫
           </p>
@@ -339,7 +330,6 @@ export default function App() {
         )}
       </div>
 
-      {/* Футер */}
       <footer className="relative z-10 text-center py-8 text-pink-300/30 text-sm">
         <p>Сделано с 💖 специально для тебя</p>
       </footer>
